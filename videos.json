@@ -2,16 +2,30 @@
     {
         "id": 1,
         "titulo": "Mundo animal",
-        "video": "./videos/164340397122012861f45ac3634b8.mp4",
+        "video": "./videos/164340727222012861f467a802079.mp4",
         "visualizacoes": "200",
-        "data_publicacao": "25/02/2022"
+        "data_publicacao": "25/02/2022",
+        "autor": "Valdir Silva",
+        "imagem": "https://github.com/valdirsillva.png"
     },
 
     {
         "id": 2,
         "titulo": "Só sei que nada sei",
-        "video": "./videos/164340397122012861f45ac3634b8.mp4",
+        "video": "./videos/164332319222012761f31f3857c20.mp4",
         "visualizacoes": "240",
-        "data_publicacao": "25/02/2022"
+        "data_publicacao": "25/02/2022",
+        "autor": "Valdir Silva",
+        "imagem": "https://github.com/valdirsillva.png"
+    },
+
+    {
+        "id": 3,
+        "titulo": "Vista de um por do sol dourado",
+        "video": "./videos/164340820022012861f46b48b0292.mp4",
+        "visualizacoes": "240",
+        "data_publicacao": "25/02/2022",
+        "autor": "Valdir Silva",
+        "imagem": "https://github.com/valdirsillva.png"
     }
 ]

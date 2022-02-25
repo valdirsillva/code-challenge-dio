@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;1,400&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
 html, body {
     margin: 0;
     padding: 0;
     box-align: border-box;
     list-style: none;
     text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+
+    
 }
 
 .container {
@@ -26,6 +31,9 @@ section {
 
 .card-header, .flex-channel-header  {
     flex-direction: row;
+    align-items: center;
+    color: red;
+
 }
 
 .card-header > h3 {
@@ -153,9 +161,7 @@ div > input[type="search"] {
   .flexbox-collumn-movie {
     width: 450px;
     height: 535px;
-    /*border: 1px solid #D0C8C8;*/
     box-sizing: border-box;
-    /*border-radius: 10px;*/
     margin-top: 62px;
   
     overflow-y: auto;
@@ -180,12 +186,16 @@ div > input[type="search"] {
   }
   
   .details-video > small {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
   
     display: block;
   }
   
-  
+  .details-video > span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444141
+  }
   .thumbnail-video > video {
     width: 190px;
     height: 111px;
@@ -201,7 +211,6 @@ div > input[type="search"] {
   
   .movie > span,
   .movie > small {
-    font-family: Roboto Condensed;
     font-style: normal;
     font-weight: 500;
   

@@ -81,21 +81,20 @@
                        <div class="flex-container-movie">
                           <span id="carregar-video"> 
                               <!-- <VIDEO/> !-->
-                            <video src="" width="100%" height="315px" controls="" id="5" controlslist="nodownload"><source></video></span>
+                           </span>
             
                           <div class="flex-items-details">
                              <div class="title">Titulo do Vídeo</div>
                              <div id="views">2000 views</div>
                              <div class="flexbox-likes">
                                 
-                                <i class="far fa-thumbs-up onLike"></i>
-                                <i class="far fa-thumbs-down"></i>
+                              <i class="material-icons">favorite</i>
                               <i class="videoid" id=""></i>
                              </div>
                              <div class="line"></div>
                           </div>
                           <div class="flex-authors">
-                             <img src="">
+                             <img id="image-author">
                              <div id="autor"> </div>
                           </div>
                        </div>
@@ -160,6 +159,7 @@
      <script>
      
           let author = document.querySelector("#autor");
+          let authorImage = document.querySelector("#image-author");
           let source = document.createElement('source');
           let titleVideo = document.querySelector('.title');
           let containerVideo = document.querySelector('#carregar-video');
@@ -168,17 +168,34 @@
           let videoid = document.querySelector('.videoid');
      
           window.addEventListener("load", function() {
-             const BUTTON_PLAY = 'images/play.png';
-     
-              async function find() {
+            const BUTTON_PLAY = 'images/play.png';
+            const SERVICE_API = 'http://localhost:8000/code-challenge-dio/services/';
+            
+            async function getVideos() {
+
+               return await 
+                  fetch(`${SERVICE_API}`)
+                  .then((response) => response.json())
+                  .catch(err => console.log(err))  
+            }
+
+            async function mapper() {
+               const allVideos = await getVideos();
+               allVideos.map(video => { findAll(video); });
+            }
+
+            async function find() {
                  const currentVideo = await getVideos();
+
                  let videoFirst = document.createElement('video');
-                 let { id, url, title, author  } = [... currentVideo].pop(); // uso um spread operator para espalhar os valores, pegando o último obj
+                 let { id, titulo, video, visualizacoes, data_publicacao, autor, imagem } = currentVideo
      
-                 author.textContent = author;
-                 titleVideo.textContent = title;
+                 author.textContent = autor;
+                 authorImage.src = imagem;
+
+                 titleVideo.textContent = titulo;
      
-                 videoFirst.src = url;
+                 videoFirst.src = video;
                  videoFirst.setAttribute("width", "100%");
                  videoFirst.setAttribute("height", "315px");
                  videoFirst.setAttribute("controls", "");
@@ -188,46 +205,49 @@
                  videoFirst.appendChild(source);
                  containerVideo.appendChild(videoFirst);
               }
-     
-            
-              handleIconClick.onclick =  () => {
+   
+            //   handleIconClick.onclick =  () => {
                
-              }   
+            //   }
+
+              
+            function findAll(video) {
+               
+               let output = `
+               <div class="movie">
+                  <div class="thumbnail-video">
+                  <video>
+                     <source src=${video.video} type="video/mp4"  >
+                  </video>
+
+                     <div class="details-video">
+                     <span>${video.titulo}</span>
+                     <small>${video.visualizacoes} visualizações</small>
+                     </div>
+                  </div>
+
+                  <div class="frame">
+                     <div class="play" >
+                        <img src='${BUTTON_PLAY}' 
+                        onclick='getUrlVideo(this)' 
+                        id=${video.id}
+                        name=${video.video} 
+                        title='${video.titulo}' 
+                        alt='${video.autor}' />
+                     </div>
+                  </div>
+               </div>`;
+               document.querySelector("#items").innerHTML += output;
+            }
+   
+            find(); 
+            mapper(); 
      
           });
 
 
-          function findAll(video) {
-            
-            let output = `
-             <div class="movie">
-               <div class="thumbnail-video">
-                 <video>
-                    <source src=${video.url} type="video/mp4"  >
-                 </video>
-
-                  <div class="details-video">
-                    <span>${video.title}</span>
-                    <small>200 visualizações</small>
-                  </div>
-               </div>
-
-               <div class="frame">
-                  <div class="play" >
-                     <img src='${BUTTON_PLAY}' 
-                       onclick='getUrlVideo(this)' 
-                       id=${video.id}
-                       name=${video.url} 
-                       title='${video.title}' 
-                       alt='${video.author}' />
-                  </div>
-               </div>
-            </div>`;
-            document.querySelector("#items").innerHTML += output;
-         }
      
-     
-            function getUrlVideo() {
+         function getUrlVideo() {
                  
                  const VIDEO = {
                     id: event.target.id,
@@ -251,19 +271,19 @@
                  source.src = VIDEO.uniformResourceLocator;
                  source.type = 'video/mp4';
      
-                 titleVideo.textContent = VIDEO.title;
+                 titleVideo.textContent = VIDEO.titulo;
                  author.textContent = VIDEO.autor;
      
                  video.appendChild(source);
                  containerVideo.appendChild(video);
-            }
+         }
      
-            function removeComponent(containerVideo) {
-                 // caso haja um filho um nó filho no elemento <video/> remova-o do DOM
-                 while (containerVideo.firstChild) {
-                    containerVideo.removeChild(containerVideo.firstChild);
-                 }
+         function removeComponent(containerVideo) {
+            // caso haja um filho um nó filho no elemento <video/> remova-o do DOM
+            while (containerVideo.firstChild) {
+                  containerVideo.removeChild(containerVideo.firstChild);
             }
+         }
 
         </script>     
 

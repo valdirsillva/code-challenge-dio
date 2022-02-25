@@ -1,7 +1,7 @@
 <?php 
 
-
 header("Content-Type: application/json");
+
 
 class ServicesApi 
 {
@@ -13,5 +13,3 @@ class ServicesApi
      }
 }
 
-
-echo ServicesApi::get();
