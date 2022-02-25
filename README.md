@@ -1,6 +1,10 @@
 # code-challenge-dio
 Code challenge DIO Git/Github
 
+## License
+
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/valdirsillva/chatbot/blob/main/LICENSE) 
+
 
 ## Project TubeMove
 
@@ -13,3 +17,5 @@ Code challenge DIO Git/Github
 * JS
 * HTML5
 * CSS3
+
+
