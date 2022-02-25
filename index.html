@@ -103,27 +103,169 @@
                        <div class="flexbox-collumn-movie" id="items">
                        <!-- lista videos -->
                        
-                      <div class="movie">
-                        <div class="thumbnail-video">
-                          <video>
-                             <source src="videos/164340727222012861f467a802079.mp4" type="video/mp4">
-                          </video>
-            
-                           <div class="details-video">
-                             <span>Animais selvagens</span>
-                             <small>200 visualizações</small>
-                           </div>
-                        </div>
-            
-                        <div class="frame">
-                           <div class="play">
-                              <img src="images/play.png" onclick="getUrlVideo(this)" id="5" name="" title="Animais selvagens" alt="teste">
-                           </div>
-                        </div>
-                     </div></div>
+                       </div>
                     </div>
              </section>
-    </div>
+         </div>
+
+         
+<style>
+   
+        .play {
+         z-index: -1;
+         display: flex;
+         width: 32px;
+         height: 32px;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         /*background: #efede7;*/
+         background: #242423;
+         opacity: 1;
+         cursor: pointer;
+         transition: opacity .3s ease-in-out,background .1s ease-in-out;
+        }
+     
+        .play:hover {
+           -webkit-transform: scale(1.1);
+           -ms-transform: scale(1.1);
+           transform: scale(1.1);
+        }
+     
+        .frame {
+         width: 190px;
+         height: 111px;
+         /*border: 1px solid red;*/
+         position: absolute;
+         z-index: 1;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+     
+         top: 7px;
+        }
+     
+        svg {
+         width: 40px;
+         fill: white;
+     
+         cursor: pointer;
+        }
+        
+     
+     </style>
+     
+     
+     
+     <script>
+     
+          let author = document.querySelector("#autor");
+          let source = document.createElement('source');
+          let titleVideo = document.querySelector('.title');
+          let containerVideo = document.querySelector('#carregar-video');
+     
+          let handleIconClick = document.querySelector('.onLike');
+          let videoid = document.querySelector('.videoid');
+     
+          window.addEventListener("load", function() {
+             const BUTTON_PLAY = 'images/play.png';
+     
+              async function find() {
+                 const currentVideo = await getVideos();
+                 let videoFirst = document.createElement('video');
+                 let { id, url, title, author  } = [... currentVideo].pop(); // uso um spread operator para espalhar os valores, pegando o último obj
+     
+                 author.textContent = author;
+                 titleVideo.textContent = title;
+     
+                 videoFirst.src = url;
+                 videoFirst.setAttribute("width", "100%");
+                 videoFirst.setAttribute("height", "315px");
+                 videoFirst.setAttribute("controls", "");
+                 videoFirst.setAttribute("id", id);
+                 videoFirst.setAttribute("controlsList", "nodownload");
+                 
+                 videoFirst.appendChild(source);
+                 containerVideo.appendChild(videoFirst);
+              }
+     
+            
+              handleIconClick.onclick =  () => {
+               
+              }   
+     
+          });
+
+
+          function findAll(video) {
+            
+            let output = `
+             <div class="movie">
+               <div class="thumbnail-video">
+                 <video>
+                    <source src=${video.url} type="video/mp4"  >
+                 </video>
+
+                  <div class="details-video">
+                    <span>${video.title}</span>
+                    <small>200 visualizações</small>
+                  </div>
+               </div>
+
+               <div class="frame">
+                  <div class="play" >
+                     <img src='${BUTTON_PLAY}' 
+                       onclick='getUrlVideo(this)' 
+                       id=${video.id}
+                       name=${video.url} 
+                       title='${video.title}' 
+                       alt='${video.author}' />
+                  </div>
+               </div>
+            </div>`;
+            document.querySelector("#items").innerHTML += output;
+         }
+     
+     
+            function getUrlVideo() {
+                 
+                 const VIDEO = {
+                    id: event.target.id,
+                    title: event.target.title,
+                    autor: event.target.alt,
+                    uniformResourceLocator: event.target.name
+                 }
+                 
+                 // remove o elemento  <video/> do DOM
+                 removeComponent(containerVideo);
+                 
+                 // cria um novo elemento no DOM
+                 let video = document.createElement('video');
+     
+                 video.setAttribute("width", "100%");
+                 video.setAttribute("height", "315px");
+                 video.setAttribute("controls", "");
+                 video.setAttribute("id", VIDEO.id);
+                 video.setAttribute("controlsList", "nodownload");
+     
+                 source.src = VIDEO.uniformResourceLocator;
+                 source.type = 'video/mp4';
+     
+                 titleVideo.textContent = VIDEO.title;
+                 author.textContent = VIDEO.autor;
+     
+                 video.appendChild(source);
+                 containerVideo.appendChild(video);
+            }
+     
+            function removeComponent(containerVideo) {
+                 // caso haja um filho um nó filho no elemento <video/> remova-o do DOM
+                 while (containerVideo.firstChild) {
+                    containerVideo.removeChild(containerVideo.firstChild);
+                 }
+            }
+
+        </script>     
 
 </body>
 </html>
