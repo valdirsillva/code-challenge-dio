@@ -1,0 +1,254 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-align: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+
+section {
+    height: 100vh;
+}
+
+.card-header, .flex-channel-header {
+    display: flex;
+}
+
+.card-header, .flex-channel-header  {
+    flex-direction: row;
+}
+
+.card-header > h3 {
+    margin-left: 27px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #e8b817;
+}
+
+.flex-channel-header {
+    width: 100%;
+    height: 100px;
+    border: 1px solid rgba(206, 198, 198, 0.05);
+
+    align-items: center;
+    gap: 84px;
+}
+
+
+.flex-input-search {
+    margin-right: 1rem;
+}
+
+div > input[type="search"] {
+    width: 512px;
+    height: 40px;
+    background: #e3dddd;
+    border: 0;
+    border-radius: 25px;
+    padding: .75rem 1rem;
+}
+
+.flex-notification {
+    display: flex;
+}
+
+.flex-notification > i,
+.card-header > i {
+  font-size: 30px;
+}
+
+.flex-notification .notification-bell {
+    color: #e8b817;
+}
+
+
+.flex-container-movie {
+    width: 560px;
+    height: 315px;
+    margin-top: 4rem;
+    margin-left: 2rem;
+  }
+  
+  .flex-container-movie > video {
+    border-radius: 10px;
+  }
+  
+  .flex-items-details > .title {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #444141;
+    margin-top: 2rem;
+  }
+  
+  .flex-items-details > .line {
+    border-bottom: 1px solid #cfc9c9;
+    margin-top: 0.885rem;
+  }
+  
+  #views {
+    font-size: 0.995rem;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 1rem;
+  }
+  
+  .flex-authors {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .flex-authors > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .flex-authors > div {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #444141;
+  }
+  
+  .flexbox-likes {
+    position: relative;
+    display: flex;
+    gap: 3rem;
+    float: right;
+    margin-top: -25px;
+  }
+  
+  .flexbox-likes > i {
+    font-size: 1.45rem;
+  }
+  
+  .flexbox-likes > i:hover {
+    cursor: pointer;
+  }
+  
+  .flexbox-likes > i > span {
+    font-size: 0.775rem;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .flexbox-collumn-movie {
+    width: 450px;
+    height: 535px;
+    /*border: 1px solid #D0C8C8;*/
+    box-sizing: border-box;
+    /*border-radius: 10px;*/
+    margin-top: 62px;
+  
+    overflow-y: auto;
+  }
+  
+  .flex-container-movie > .movie > video {
+    position: absolute;
+    width: 190px;
+    height: 111px;
+  }
+  
+  .thumbnail-video {
+    width: 100%;
+  
+    display: flex;
+  }
+  
+  .details-video {
+    width: 190px;
+    height: 111px;
+    margin-left: 1rem;
+  }
+  
+  .details-video > small {
+    margin-top: 2rem;
+  
+    display: block;
+  }
+  
+  
+  .thumbnail-video > video {
+    width: 190px;
+    height: 111px;
+  }
+  
+  .movie {
+    padding-top: 7px;
+    padding-left: 59px;
+    padding-bottom: 7px;
+  
+    position: relative;
+  }
+  
+  .movie > span,
+  .movie > small {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: 500;
+  
+    margin-left: 1rem;
+  }
+  
+  .movie > span {
+    position: absolute;
+    width: 164px;
+    height: 21px;
+  
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #4d4848;
+  }
+  
+  .movie > small {
+    font-size: 12px;
+    line-height: 15px;
+    color: #625c5c;
+    position: absolute;
+    margin-top: 1.36rem;
+  }
+  
+  .flex {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+  }
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(213, 213, 213);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(213, 213, 213);
+  }
