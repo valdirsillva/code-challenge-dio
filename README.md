@@ -8,8 +8,7 @@ Code challenge DIO Git/Github
 
 ## Project TubeMove
 
-* run php -S localhost:8000 in the api folder to serve the application
-* route http://localhost:8000/code-challenge-dio/api/
+* route http://localhost/code-challenge-dio/api/
 
 ### Languages 
 
