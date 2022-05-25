@@ -1,5 +1,4 @@
-# code-challenge-dio
-Code challenge DIO Git/Github
+# tube-move-php
 
 ## License
 
@@ -8,7 +7,7 @@ Code challenge DIO Git/Github
 
 ## Project TubeMove
 
-* route http://localhost/code-challenge-dio/api/
+* route http://localhost/tube-move-php/api/
 
 ### Languages 
 
