@@ -1,0 +1,35 @@
+ .play {
+     z-index: -1;
+     display: flex;
+     width: 32px;
+     height: 32px;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+ 
+     background: #242423;
+     opacity: 1;
+     cursor: pointer;
+     transition: opacity .3s ease-in-out,background .1s ease-in-out;
+}
+ .play:hover {
+     -webkit-transform: scale(1.1);
+     -ms-transform: scale(1.1);
+     transform: scale(1.1);
+}
+ .frame {
+     width: 190px;
+     height: 111px;
+     position: absolute;
+     z-index: 1;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     top: 7px;
+}
+ svg {
+     width: 40px;
+     fill: white;
+     cursor: pointer;
+}
+ 
